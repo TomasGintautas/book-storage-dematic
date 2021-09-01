@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
-public class BookResponse {
+public class BookPriceResponse {
 
     private Long id;
 
@@ -27,7 +27,9 @@ public class BookResponse {
     @JsonFormat(pattern = "yyyy")
     private LocalDate releaseYear;
 
-    public BookResponse(Book book) {
+    private BigDecimal totalPrice;
+
+    public BookPriceResponse(Book book, BigDecimal totalPrice) {
         this.id = book.getId();
         this.barcode = book.getBarcode();
         this.bookName = book.getBookName();
@@ -36,5 +38,6 @@ public class BookResponse {
         this.price = book.getPrice();
         this.scienceIndex = book.getScienceIndex();
         this.releaseYear = book.getReleaseYear();
+        this.totalPrice = totalPrice;
     }
 }

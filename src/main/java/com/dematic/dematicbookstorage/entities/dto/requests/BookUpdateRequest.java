@@ -9,21 +9,17 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
-public class BookRequest {
+public class BookUpdateRequest {
 
     @NotBlank
     private String barcode;
 
-    @NotBlank
     private String bookName;
 
-    @NotBlank
     private String author;
 
-    @NotBlank
     private Long quantity;
 
-    @NotBlank
     private BigDecimal price;
 
     @Range(min = 1, max = 10)
