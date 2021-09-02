@@ -2,6 +2,8 @@ package com.dematic.dematicbookstorage.controllers;
 
 import com.dematic.dematicbookstorage.entities.dto.requests.BookRequest;
 import com.dematic.dematicbookstorage.entities.dto.requests.BookUpdateRequest;
+import com.dematic.dematicbookstorage.entities.dto.responses.BarcodeQuantityResponse;
+import com.dematic.dematicbookstorage.entities.dto.responses.BookPriceResponse;
 import com.dematic.dematicbookstorage.entities.dto.responses.BookResponse;
 import com.dematic.dematicbookstorage.services.BookStorageService;
 import org.springframework.http.HttpStatus;
@@ -33,12 +35,12 @@ public class BookStorageController {
     }
 
     @GetMapping("/{barcode}/price")
-    public String calculatePrice(@PathVariable("barcode") String barcode){
-        return null;
+    public BookPriceResponse calculatePrice(@PathVariable("barcode") String barcode){
+        return bookStorageService.getTotalPrice(barcode);
     }
 
     @GetMapping("/price-list")
-    public List<String> calculateAllPrices(){
-        return null;
+    public List<BarcodeQuantityResponse> calculateAllPrices(){
+        return bookStorageService.getAllBarcodes();
     }
 }
