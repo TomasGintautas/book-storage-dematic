@@ -5,8 +5,10 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Year;
 
 @Data
 public class BookRequest {
@@ -20,15 +22,14 @@ public class BookRequest {
     @NotBlank
     private String author;
 
-    @NotBlank
+    @NotNull
     private Long quantity;
 
-    @NotBlank
+    @NotNull
     private BigDecimal price;
 
     @Range(min = 1, max = 10)
     private Integer scienceIndex;
 
-    @JsonFormat(pattern = "yyyy")
-    private LocalDate releaseYear;
+    private Year releaseYear;
 }

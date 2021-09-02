@@ -6,6 +6,7 @@ import com.dematic.dematicbookstorage.entities.dto.responses.BarcodeQuantityResp
 import com.dematic.dematicbookstorage.entities.dto.responses.BookPriceResponse;
 import com.dematic.dematicbookstorage.entities.dto.responses.BookResponse;
 import com.dematic.dematicbookstorage.services.BookStorageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 public class BookStorageController {
 
+    @Autowired
     private BookStorageService bookStorageService;
 
     @PostMapping("/create")

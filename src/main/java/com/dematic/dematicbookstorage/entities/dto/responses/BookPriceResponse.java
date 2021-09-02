@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Year;
 
 @Data
 public class BookPriceResponse {
@@ -24,8 +25,7 @@ public class BookPriceResponse {
 
     private Integer scienceIndex;
 
-    @JsonFormat(pattern = "yyyy")
-    private LocalDate releaseYear;
+    private Year releaseYear;
 
     private BigDecimal totalPrice;
 

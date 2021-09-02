@@ -23,14 +23,12 @@ import java.util.stream.Collectors;
 public class BookStorageService {
 
     private final BookRepository bookRepository;
-    private final BookTypeValidation bookTypeValidation;
-    private final QuantityComparator quantityComparator;
+    private  BookTypeValidation bookTypeValidation;
+    private  QuantityComparator quantityComparator;
 
     @Autowired
-    public BookStorageService(BookRepository bookRepository, BookTypeValidation bookTypeValidation, QuantityComparator quantityComparator) {
+    public BookStorageService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
-        this.bookTypeValidation = bookTypeValidation;
-        this.quantityComparator = quantityComparator;
     }
 
     public BookResponse createBook(BookRequest bookRequest){

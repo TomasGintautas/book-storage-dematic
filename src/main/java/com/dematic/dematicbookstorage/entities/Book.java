@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,11 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Year;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@NoArgsConstructor
 public class Book {
 
     @Id
@@ -37,12 +37,13 @@ public class Book {
     private Integer scienceIndex;
 
     @JsonFormat(pattern = "yyyy")
-    private LocalDate releaseYear;
+    private Year releaseYear;
 
     public Book(BookRequest bookRequest) {
         this.barcode = bookRequest.getBarcode();
         this.bookName = bookRequest.getBookName();
         this.author = bookRequest.getAuthor();
+        this.price = bookRequest.getPrice();
         this.quantity = bookRequest.getQuantity();
         this.releaseYear = bookRequest.getReleaseYear();
         this.scienceIndex = bookRequest.getScienceIndex();

@@ -1,11 +1,8 @@
 package com.dematic.dematicbookstorage.utils;
 
 import com.dematic.dematicbookstorage.entities.Book;
-import org.springframework.stereotype.Component;
-
 import java.util.Comparator;
 
-@Component
 public class QuantityComparator implements Comparator<Book> {
 
     @Override

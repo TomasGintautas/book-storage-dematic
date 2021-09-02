@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Range;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Year;
 
 @Data
 public class BookUpdateRequest {
@@ -25,6 +26,5 @@ public class BookUpdateRequest {
     @Range(min = 1, max = 10)
     private Integer scienceIndex;
 
-    @JsonFormat(pattern = "yyyy")
-    private LocalDate releaseYear;
+    private Year releaseYear;
 }
