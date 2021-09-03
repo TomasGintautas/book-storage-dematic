@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.Year;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,12 +23,14 @@ import java.util.stream.Collectors;
 public class BookStorageService {
 
     private final BookRepository bookRepository;
-    private  BookTypeValidation bookTypeValidation;
-    private  QuantityComparator quantityComparator;
+    private final BookTypeValidation bookTypeValidation;
+    private final QuantityComparator quantityComparator;
 
     @Autowired
-    public BookStorageService(BookRepository bookRepository) {
+    public BookStorageService(BookRepository bookRepository, BookTypeValidation bookTypeValidation, QuantityComparator quantityComparator) {
         this.bookRepository = bookRepository;
+        this.bookTypeValidation = bookTypeValidation;
+        this.quantityComparator = quantityComparator;
     }
 
     public BookResponse createBook(BookRequest bookRequest){
@@ -78,7 +80,7 @@ public class BookStorageService {
         BigDecimal totalPrice = BigDecimal.valueOf(book.getQuantity()).multiply(book.getPrice());
 
         if(bookTypeValidation.isAntique(book)){
-            Long yearDifference = ChronoUnit.YEARS.between(LocalDate.now(),book.getReleaseYear());
+            Long yearDifference = ChronoUnit.YEARS.between(book.getReleaseYear(),Year.now());
             totalPrice = totalPrice.multiply(BigDecimal.valueOf(yearDifference).divide(BigDecimal.valueOf(10L)));
         }
 
@@ -90,20 +92,6 @@ public class BookStorageService {
     }
 
     public List<BarcodeQuantityResponse> getAllBarcodes(){
-//        bookRepository.findAll()
-//                .stream()
-//                .map(book -> new BookPriceResponse(book, null))
-//                .forEach(book -> {
-//                    BigDecimal totalPrice = BigDecimal.valueOf(book.getQuantity()).multiply(book.getPrice());
-//                    if(bookTypeValidation.isAntique(book)){
-//                        Long yearDifference = ChronoUnit.YEARS.between(LocalDate.now(),book.getReleaseYear());
-//                        totalPrice = totalPrice.multiply(BigDecimal.valueOf(yearDifference).divide(BigDecimal.valueOf(10L)));
-//                    }
-//                    else if(bookTypeValidation.isScienceJournal(book)){
-//                        totalPrice = totalPrice.multiply(BigDecimal.valueOf(book.getScienceIndex()));
-//                    }
-//                });
-
         return bookRepository.findAll()
                 .stream()
                 .sorted(quantityComparator)

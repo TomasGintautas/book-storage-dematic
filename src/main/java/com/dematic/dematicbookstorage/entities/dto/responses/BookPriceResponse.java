@@ -1,14 +1,14 @@
 package com.dematic.dematicbookstorage.entities.dto.responses;
 
 import com.dematic.dematicbookstorage.entities.Book;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.Year;
 
 @Data
+@NoArgsConstructor
 public class BookPriceResponse {
 
     private Long id;
