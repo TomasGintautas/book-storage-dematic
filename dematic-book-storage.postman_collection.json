@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "1cbe0535-7f10-4ecd-a22a-f1be2b911a8d",
+		"name": "dematic-book-storage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"barcode\" : \"4123123123123\",\r\n    \"bookName\" : \"Postman Book\",\r\n    \"author\" : \"Postman\",\r\n    \"quantity\" : 10,\r\n    \"price\" : 19.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Science Journal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"barcode\" : \"4123123123124\",\r\n    \"bookName\" : \"Postman Book\",\r\n    \"author\" : \"Postman\",\r\n    \"quantity\" : 20,\r\n    \"price\" : 10.99,\r\n    \"scienceIndex\" : 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Antique Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"barcode\" : \"4123123123125\",\r\n    \"bookName\" : \"Postman Book\",\r\n    \"author\" : \"Postman\",\r\n    \"quantity\" : 13,\r\n    \"price\" : 17.99,\r\n    \"releaseYear\" : 1990\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book With Barcode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/4123123123123",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"4123123123123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"barcode\" : \"4123123123123\",\r\n    \"bookName\" : \"Postman Book\",\r\n    \"author\" : \"Postman\",\r\n    \"quantity\" : 30,\r\n    \"price\" : 19.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/4123123123123",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"4123123123123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book Total Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/4123123123123/price",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"4123123123123",
+						"price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Antique Book Total Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/4123123123125/price",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"4123123123125",
+						"price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Science Journal Total Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/4123123123124/price",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"4123123123124",
+						"price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Price and Quantity List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/v1/book-storage/price-list",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"book-storage",
+						"price-list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
